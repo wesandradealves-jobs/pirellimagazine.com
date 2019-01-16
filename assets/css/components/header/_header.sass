@@ -1,0 +1,80 @@
+.header
+    color: white
+    z-index: 10
+    .container
+        align-items: center
+        @extend .flex
+        flex-flow: row wrap 
+        justify-content: space-between
+        .navigation
+            +mq(1023px, max)
+                order: 3
+            >ul 
+                align-items: center
+                @extend .flex
+                flex-flow: row wrap 
+                justify-content: space-between
+                +mq(1023px, max)
+                    justify-content: flex-end
+                z-index: 2
+                >li 
+                    +rem('font-size', 15px)
+                    padding: 0 9.5px
+                    +mq(1070px, max)
+                        +rem('font-size', 12px)
+                        padding: 0 10px
+                    position: relative
+                    text-transform: uppercase
+                    +mq(1023px, max)
+                        &:not(:last-child)
+                            display: none
+                    &:last-child
+                        display: none 
+                        +mq(1023px, max)
+                            display: initial    
+                            padding: 0               
+                    a:hover
+                        color: $blue
+                    &:hover
+                        .fa-angle-down
+                            transform: rotate(180deg)
+                    .fa-angle-down
+                        display: inline-block
+                        margin-left: 5px
+                        +transition(500ms)
+                        transform-origin: center center
+                    &:hover ul
+                        display: block
+                    >ul 
+                        display: none
+                        left: 10px
+                        padding-top: 8px
+                        position: absolute 
+                        top: 100%
+                        width: 150%
+                        >li 
+                            +rem('font-size', 12px)
+                            font-family: 'Gotham XNarrow Book'
+                            margin-bottom: 8px
+                           
+        .profile-category
+            +mq(1023px, max)
+                display: none
+            font-family: '911 Porscha Expanded'
+            +rem('font-size', 20px)
+            position: relative
+            z-index: 1
+            +mq(1023px, max)
+                order: 2
+            span 
+                position: relative
+                z-index: 2
+            &::after
+                content: url('assets/imgs/profile-category-bg.png')
+                display: block 
+                +mq(1023px, max)
+                    display: none
+                position: absolute 
+                right: 0
+                top: 0
+                z-index: 1

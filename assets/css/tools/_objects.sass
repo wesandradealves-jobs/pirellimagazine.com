@@ -1,0 +1,236 @@
+textarea,
+input
+    &[placeholder]
+        color: lightgray
+        font-weight: 300
+        opacity: 1
+        text-overflow: ellipsis
+    &::-moz-placeholder
+        color: lightgray
+        font-weight: 300
+        opacity: 1
+        text-overflow: ellipsis
+    &::-webkit-input-placeholder
+        color: lightgray
+        font-weight: 300
+        opacity: 1
+        text-overflow: ellipsis
+    &:-ms-input-placeholder 
+        color: lightgray
+        font-weight: 300
+        opacity: 1
+        text-overflow: ellipsis
+
+.flex  
+    display: -webkit-box
+    display: -ms-flexbox
+    display: -webkit-flex
+    display: flex    
+
+.container
+    display: block
+    margin: 0 auto
+
+#wrap
+    min-height: 100vh
+    margin: 0 auto 
+    max-width: 1168px
+    overflow: hidden
+    padding: 40px
+    +mq(836px, max)
+        padding: 20px
+    width: 100%
+
+.logo 
+    img,svg
+        display: block
+        height: auto
+        max-width: 100%
+
+.section-title
+    background-color: $blue 
+    color: white 
+    display: inline-block
+    padding: 3px 7px
+    +rem('font-size', 15px)
+    font-family: 'Gotham XNarrow Book'
+    text-transform: uppercase     
+    >strong 
+        font-family: 'Gotham XNarrow'
+
+[class*='thumbnail']
+    background-size: cover 
+    background-position: center center 
+    background-repeat: no-repeat        
+    display: block
+
+.title-header
+    align-items: center
+    @extend .flex
+    flex-flow: row wrap
+    margin-bottom: 30px
+    justify-content: space-between
+    position: relative
+    &::after
+        background: -moz-linear-gradient(left, $blue 0%, rgba(125,185,232,0) 100%)
+        background: -webkit-linear-gradient(left, $blue 0%,rgba(125,185,232,0) 100%)
+        background: linear-gradient(to right, $blue 0%,rgba(125,185,232,0) 100%)
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$blue, endColorstr=transparentize($blue, .7),GradientType=1 )
+        bottom: -1px
+        content: ''
+        display: block 
+        position: absolute
+        height: 1px
+        width: 100%
+
+.webdoor
+    align-items: center
+    background-size: cover 
+    background-position: center center 
+    background-repeat: no-repeat    
+    @extend .flex
+    flex-flow: column wrap
+    justify-content: center 
+    margin: 30px auto 45px
+    &::after
+        background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,9) 70%)
+        background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%,rgba(0,0,0,9) 70%)
+        background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,9) 70%)
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1 )
+        content: ''
+        display: block
+        left: 0
+        position: absolute 
+        top: 0 
+        height: 100%
+        width: 100%
+        z-index: 1
+    >* 
+        z-index: 2
+    .social-networks
+        >li 
+            background-color: $matte
+            &:hover
+                background-color: $gray
+            color: white
+            display: inline-block
+            height: 40px
+            line-height: 40px
+            text-align: center 
+            vertical-align: middle 
+            width: 40px
+            +rem('font-size', 20px)
+            &:not(:last-child)
+                margin-right: 6px
+    .title
+        color: white
+        +rem('font-size', 40px)
+        max-width: 696px
+        text-align: center
+        &.-search
+            font-family: 'Gotham XNarrow Book'
+            strong 
+                font-family: 'Gotham XNarrow'
+        &:nth-child(2)
+            margin: 25px auto
+    .date
+        color: $mediumgray
+        +rem('font-size', 12px)
+        margin: 25px auto
+    .category
+        background-color: black
+        color: $red
+        +rem('font-size', 15px)
+        margin: 40px auto 20px
+        padding: 8px
+        text-transform: uppercase
+    .breadcrumbs
+        text-align: center
+        >li 
+            color: $mediumgray
+            display: inline-block
+            font-family: 'Gotham Book'
+            +rem('font-size', 12px) 
+            vertical-align: baseline
+            >a 
+                &:hover
+                    text-decoration: underline 
+            &:not(:last-child)::after
+                content: '>'
+                display: inline-block 
+                margin-left: 6px
+                margin-right: 3px
+                vertical-align: middle 
+
+.content
+    &-wrapper 
+        &:not(:only-child)
+            padding-right: calc(65px/2)
+        flex: 0 0 auto 
+        width: 685px
+        +mq(1023px, max)
+            width: 60%
+            +mq(736px, max)
+                &:not(:only-child)
+                    margin-bottom: 30px
+                    padding-right: 0
+                width: 100%
+        p,div
+            color: white
+            display: block 
+            +rem('font-size',20px)
+            font-family: 'Gotham XNarrow Book'
+            strong,b
+                font-family: 'Gotham XNarrow'
+            img 
+                display: inherit 
+                max-width: 100%
+    .container
+        align-items: strech
+        @extend .flex
+        flex-flow: row wrap
+        justify-content: space-between                 
+
+.featured-news
+    color: white
+    .title
+        margin-top: 20px
+    .excerpt
+        display: block
+        font-family: 'Gotham XNarrow Book'
+        +rem('font-size', 15px)
+        width: 100%
+    .thumbnail
+        width: 100%        
+
+.post-list-title
+    +rem('font-size', 30px)
+    .date
+        display: block
+        +rem('font-size', 12px)
+        font-family: 'Gotham XNarrow Book'
+        margin: 7px 0
+        .category
+            text-transform: uppercase
+            &:hover
+                color: $blue
+                text-decoration: underline
+
+.pagination
+    text-align: center
+    > li 
+        background-color: $gray
+        border: 1px transparentize(lightgray, .5) solid
+        color: white 
+        display: inline-block 
+        font-family: 'Gotham XNarrow Book'
+        vertical-align: baseline
+        line-height: 30px
+        margin: 0 4px
+        +rem('font-size', 12px)
+        text-align: center 
+        height: 30px
+        width: 30px
+        &:hover
+            border-color: rgba(0,0,0,0)
+            background-color: $blue

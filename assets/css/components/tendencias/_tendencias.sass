@@ -1,0 +1,65 @@
+.tendencias
+    margin: 30px auto 0
+    &-label 
+        text-align: center 
+        vertical-align: middle
+        width: 124px
+        @extend .section-title
+    &-carousel 
+        display: inline-block
+        padding-left: 10px        
+        position: relative
+        vertical-align: middle
+        width: calc(100% - 127px)
+        &-nav
+            align-items: center
+            @extend .flex
+            height: 24px
+            flex-flow: row wrap
+            justify-content: space-between
+            position: absolute 
+            right: 24px
+            top: -5px
+            width: 6px
+            z-index: 3
+        .item
+            color: white
+            font-family: 'Gotham XNarrow Book'
+            +rem('font-size', 15px)     
+            padding-right: 60px            
+            >p 
+                display: block 
+                overflow: hidden
+                text-overflow: ellipsis 
+                white-space: pre 
+                width: 100%
+        .slick-list
+            &::after
+                background-color: black
+                content: ''
+                display: block 
+                height: 100%
+                right: 0
+                position: absolute 
+                top: 0
+                width: 60px
+                z-index: 2
+            position: relative
+            z-index: 1       
+        .slick-arrow
+            border: 1px $gray solid
+            color: $gray
+            display: inline-block 
+            @extend .fal
+            height: 25px
+            text-align: center
+            vertical-align: middle
+            width: 25px
+            &::before,&::after
+                color: lightgray
+                +rem('font-size', 14px)
+                font-family: inherit
+            &[class*='prev']
+                @extend .fa-angle-left
+            &[class*='next']
+                @extend .fa-angle-right                

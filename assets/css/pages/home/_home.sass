@@ -1,0 +1,199 @@
+.pg-home
+    .news
+        color: white
+        >.container
+            align-items: stretch
+            @extend .flex
+            flex-flow: row wrap
+            justify-content: space-between
+            >.main-news
+                flex: 0 0 auto 
+                padding-right: calc(65px/2)
+                width: 695px
+                +mq(1023px, max)
+                    flex: 1
+                    width: initial 
+                    +mq(737px, max)
+                        flex: 0 0 auto 
+                        padding-right: 0
+                        width: 100%
+                .title-header
+                    +mq(940px, max)
+                        &::after
+                            display: none   
+                            +mq(737px, max)
+                                display: block
+                                +mq(480px, max)
+                                    display: none
+                .news-wrapper
+                    align-items: stretch
+                    @extend .flex
+                    flex-flow: row wrap
+                    +mq(1023px, max)
+                        flex-flow: column wrap
+                    justify-content: space-between  
+                    .title
+                        @extend .post-list-title
+                    .news-list
+                        padding-left: 25px
+                        +mq(1023px, max)
+                            padding-left: 0
+                        flex: 1          
+                        >li   
+                            align-items: flex-start
+                            @extend .flex
+                            flex-flow: row wrap
+                            justify-content: space-between  
+                            &:not(:last-child)
+                                margin-bottom: 20px     
+                            .info
+                                flex: 1
+                                padding-left: 15px
+                                .title
+                                    +rem('font-size', 20px)
+                            .thumbnail
+                                flex: 0 0 auto 
+                                height: 75px
+                                width: 100px
+                    .featured-news
+                        padding-right: 25px
+                        flex: 0 0 auto 
+                        width: 325px
+                        +mq(1023px, max)
+                            margin-bottom: 30px
+                            padding-right: 0
+                            width: 100%
+                        .thumbnail
+                            height: 168px
+                .categories-list 
+                    align-items: center
+                    @extend .flex
+                    flex-flow: row wrap
+                    justify-content: flex-end
+                    position: relative
+                    +mq(940px, max)
+                        justify-content: space-between
+                        margin-top: 20px                    
+                        width: 100%
+                        +mq(737px, max)
+                            justify-content: flex-end
+                            margin-top: 0
+                            width: initial 
+                            +mq(480px, max)
+                                justify-content: space-between
+                                margin-top: 20px                    
+                                width: 100%                            
+                    >li 
+                        color: white
+                        +rem('font-size', 12px)
+                        &:not(:last-child)
+                            margin-right: 14px
+                        &:hover
+                            color: $blue
+                            text-decoration: underline
+            >.home-assets
+                padding-left: calc(65px/2)
+                +mq(737px, max)
+                    margin-top: 30px
+                    padding-left: 0
+                flex: 1
+                .social-networks
+                    >li 
+                        background-color: $matte
+                        &::after
+                            background-color: $red
+                            content: ''
+                            display: block
+                            height: 100%
+                            left: 0
+                            position: absolute
+                            transition: width 2s
+                            top: 0 
+                            width: 0%
+                            z-index: 1
+                        &:hover
+                            &::after 
+                                width: 100%
+                        display: block 
+                        padding: 7px 10px
+                        &:not(:last-child)
+                            margin-bottom: 10px
+                        >a
+                            align-items: center
+                            @extend .flex
+                            flex-flow: row wrap
+                            position: relative
+                            justify-content: space-between
+                            z-index: 2
+                            >span 
+                                @extend .section-title
+                                background-color: transparent
+                                padding: 0 0
+                                &.social-url
+                                    flex: 1
+                                    padding-left: 15px
+    .destaques
+        &-grid 
+            align-items: stretch
+            @extend .flex
+            flex-flow: row wrap 
+            justify-content: space-between
+            margin: 20px auto 45px
+            > li 
+                height: 365px
+                +mq(737px, max)
+                    height: 215px
+                overflow: hidden
+                flex: 1
+                +mq(536px, max)
+                    flex: 0 0 auto 
+                    width: 50%
+                    +mq(414px, max)
+                        width: 100%
+                >.thumbnail
+                    &:hover
+                        >.thumbnail
+                            transform: scale(1.2)
+                        >.display
+                            &::after
+                                height: inherit
+                    >.display
+                        color: white
+                        @extend .flex 
+                        flex-flow: column wrap 
+                        height: inherit
+                        justify-content: flex-end
+                        padding: 18px
+                        z-index: 2
+                        &::after
+                            background-color: rgba(0,0,0,.6)
+                            bottom: 0
+                            content: ''
+                            display: block 
+                            height: 0
+                            +height(500ms)
+                            left: 0
+                            position: absolute 
+                            width: 100%
+                            z-index: 1
+                        .title
+                            +rem('font-size', 30px)
+                            +mq(1023px, max)
+                                +rem('font-size', 24px)
+                                +mq(940px, max)
+                                    +rem('font-size', 18px)
+                            z-index: 2
+                        .category
+                            color: $red
+                            +rem('font-size', 10px)
+                            z-index: 2
+                    >.thumbnail
+                        left: 0
+                        position: absolute
+                        top: 0
+                        +transition(500ms)
+                        z-index: 1
+                        transform: scale(1.0)
+                [class*='thumbnail']
+                    height: inherit
+                    width: 100%

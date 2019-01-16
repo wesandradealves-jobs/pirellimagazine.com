@@ -1,0 +1,47 @@
+Prestige e Premium:
+Cadastro opcional com integração com rede social.
+
+ROP E CL:
+Qualquer conteúdo desses, cai em login e filtra.
+
+-----------------------------------------
+
+Cores:
+
+Nivel Colaboradores internos (CI)  
+
+Cores: Branco + Vermelho
+
+#########################################
+
+Nivel Revendedores Oficiais Pirelli (ROP)
+
+Cores: Amarelo + Preto
+
+#########################################
+
+Nivel Prestige 
+
+Cores: Preto + Amarelo
+
+#########################################
+
+Nivel Premium 
+
+Cores: Preto + Vermelho
+
+#########################################
+
+Domínios:
+
+http://prestige.pirellimagazine.com
+http://premium.pirellimagazine.com
+http://rop.pirellimagazine.com
+http://cl.pirellimagazine.com
+
+-----------------------------------------
+
+Conteúdo deve compartilhar no topo e final.
+CL e ROP copia link normalmente (sem social share).
+
+Os demais com social share.
