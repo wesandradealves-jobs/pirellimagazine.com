@@ -43,85 +43,49 @@
       <header id="header">
           <nav class="navigation -mobile">
             <ul>
-              <li>
-                <a href="">Bentley</a>
-              </li>
-              <li>
-                <a href="">Ferrari</a>
-              </li>
-              <li>
-                <a href="">Lamborghini</a>
-              </li>     
-              <li>
-                <a href="">Maserati</a>
-              </li>                 
-              <li>
-                <a href="">McLaren</a>
-              </li>    
-              <li>
-                <a href="">Pagani</a>
-              </li>           
-              <li>
-                <a href="">Porsche</a>
-              </li>     
-              <li>
-                <a href="javascript:void(0)">Motorsports <i class="fal fa-angle-down"></i></a>
-                <ul>
-                  <li>
-                    <a href="">Lorem ipsum dolor sit amet.</a>
-                  </li>
-                  <li>
-                    <a href="">Lorem, ipsum.</a>
-                  </li>
-                  <li>
-                    <a href="">Lorem ipsum dolor sit amet consectetur.</a>
-                  </li>
-                </ul>
-              </li>   
+                <?php 
+                  $cat = wp_list_categories( array(
+                      'taxonomy'            => 'category',
+                      'echo' => true,
+                      'order' => 'ASC',
+                      'show_count' => false,
+                      'hide_empty' => false,
+                      'exclude' => array(21,20,1,18,19),
+                      'title_li' => ''
+                  ) );
+                  
+                  $cat = preg_replace( '~\((\d+)\)(?=\s*+<)~', '$1', $cat );
+                  echo $cat;
+                ?>		
             </ul>
           </nav>        
         <div class="header">
           <div class="container">
             <h1 class="logo">
-              <a href="index.html"><img src="assets/imgs/logo.png" alt=""></a>
+              <a href="<?php echo site_url(); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) )." - ".get_bloginfo('description'); ?>">
+                  <?php if(get_theme_mod('logo')) : ?>
+                      <img height="20" src="<?php echo get_theme_mod('logo'); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) )." - ".get_bloginfo('description'); ?>">
+                  <?php else : ?>
+                      <?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
+                  <?php endif; ?>
+              </a> 
             </h1>
             <nav class="navigation">
               <ul>
-                <li>
-                  <a href="">Bentley</a>
-                </li>
-                <li>
-                  <a href="">Ferrari</a>
-                </li>
-                <li>
-                  <a href="">Lamborghini</a>
-                </li>     
-                <li>
-                  <a href="">Maserati</a>
-                </li>                 
-                <li>
-                  <a href="">McLaren</a>
-                </li>    
-                <li>
-                  <a href="">Pagani</a>
-                </li>           
-                <li>
-                  <a href="">Porsche</a>
-                </li>     
-                <li>
-                  <a href="">Motorsports <i class="fal fa-angle-down"></i></a>
-                  <ul>
-                    <li>
-                      <a href="">Lorem ipsum dolor sit amet.</a>
-                    </li>
-                    <li>
-                      <a href="">Lorem, ipsum.</a>
-                    </li>
-                    <li>
-                      <a href="">Lorem ipsum dolor sit amet consectetur.</a>
-                    </li>
-                  </ul>
-                </li>   
+                <?php 
+                  $cat = wp_list_categories( array(
+                      'taxonomy'            => 'category',
+                      'echo' => true,
+                      'order' => 'ASC',
+                      'show_count' => false,
+                      'hide_empty' => false,
+                      'exclude' => array(21,20,1,18,19),
+                      'title_li' => ''
+                  ) );
+                  
+                  $cat = preg_replace( '~\((\d+)\)(?=\s*+<)~', '$1', $cat );
+                  echo $cat;
+                ?>
                 <li>
                   <button class="hamburger hamburger--collapse js-hamburger" type="button">
                     <span class="hamburger-box">
@@ -131,9 +95,11 @@
                 </li>                                                                             
               </ul>
             </nav>
+            <?php if(get_current_blog_id() != 1) : ?>
             <h2 class="profile-category">
-              <span>Prestige</span>
+              <span><?php echo bloginfo(); ?></span>
             </h2>
+            <?php endif; ?>
           </div>
         </div>
         <div class="tendencias">

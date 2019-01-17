@@ -15,6 +15,13 @@ $(document).ready(function () {
         $('.is-active').removeClass('is-active'),
         $('.toggle').removeClass('toggle');
     });     
+    $('.navigation a').each(function() {
+        if($(this).next('ul').length)
+        {
+            $(this).attr('href','javascript:void(0)'),
+            $(this).append('<i class="fal fa-angle-down"></i>');
+        }
+    });       
     $('.navigation.-mobile a').each(function() {
         $(this).click(function() {
             if($(this).next('ul').length)
