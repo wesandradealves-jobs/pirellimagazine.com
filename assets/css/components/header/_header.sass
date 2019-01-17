@@ -1,12 +1,42 @@
-.header
+#header
     color: white
     z-index: 10
-    .container
-        align-items: center
-        @extend .flex
-        flex-flow: row wrap 
-        justify-content: space-between
-        .navigation
+    .navigation
+        &.-mobile
+            background-color: rgba(0,0,0,.8)
+            padding: 30px
+            position: fixed 
+            +transition(500ms)
+            right: -100vw
+            top: 0
+            width: 280px
+            z-index: 15  
+            &.toggle
+                right: 0
+            a
+                .fa-angle-down
+                    position: absolute
+                    padding: 0 6px
+                    +transition(500ms)
+                    transform-origin: center center
+                &.toggle
+                    .fa-angle-down
+                        transform: rotate(180deg)   
+            >ul 
+                >li 
+                    display: block
+                    &:not(:last-child)
+                        margin-bottom: 8px  
+                    >ul 
+                        display: none     
+                        margin-top: 8px
+                        &.toggle
+                            display: block
+                        >li 
+                            display: block                      
+                            &:not(:last-child)
+                                margin-bottom: 8px     
+        &:not(.-mobile)
             +mq(1023px, max)
                 order: 3
             >ul 
@@ -56,7 +86,12 @@
                             +rem('font-size', 12px)
                             font-family: 'Gotham XNarrow Book'
                             margin-bottom: 8px
-                           
+    .container
+        align-items: center
+        @extend .flex
+        flex-flow: row wrap 
+        justify-content: space-between
+                        
         .profile-category
             +mq(1023px, max)
                 display: none

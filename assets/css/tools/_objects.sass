@@ -189,7 +189,9 @@ input
         align-items: strech
         @extend .flex
         flex-flow: row wrap
-        justify-content: space-between                 
+        justify-content: space-between    
+        +mq(736px, max)
+            display: block             
 
 .featured-news
     color: white
