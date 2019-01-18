@@ -1,0 +1,72 @@
+.weather
+    margin: 0 auto 30px
+    &-header
+        align-items: flex-start
+        @extend .flex
+        flex-flow: row wrap 
+        justify-content: space-between
+        .weather-title
+            text-transform: uppercase
+            +rem('font-size', 24px)
+            .weather
+                display: block
+                +rem('font-size', 15px)
+                font-family: 'Gotham XNarrow Book'
+                margin: 4px 0
+                text-transform: initial
+        .wi-barometer
+            +rem('font-size', 22px)
+    &-info
+        align-items: center
+        @extend .flex
+        flex-flow: row wrap 
+        justify-content: space-between
+        > * 
+            flex: 1
+        .wheather-ico 
+            +rem('font-size', 50px)
+            line-height: 0
+            text-align: center
+        .weather-heat
+            +rem('font-size', 60px)
+            font-family: 'Gotham XNarrow Book'
+            text-align: center
+        .weather-max
+            padding-left: 30px
+            [class*='angle']
+                display: inline-block 
+                vertical-align: middle 
+                padding-right: 4px
+            .max
+                margin-bottom: 25px
+    &-footer       
+        align-items: center
+        @extend .flex
+        flex-flow: row wrap 
+        margin: 15px auto
+        justify-content: center   
+        > * 
+            +rem('font-size', 16px)
+            font-family: 'Gotham XNarrow Book'
+            padding: 0 7.5px
+            [class*='wi-']
+                display: inline-block 
+                +rem('font-size', 22px)
+                margin-right: 4px
+                vertical-align: middle 
+    .weekly-weather
+        align-items: center
+        @extend .flex
+        flex-flow: row wrap 
+        justify-content: center
+        > li 
+            > * 
+                display: block 
+                text-align: center
+                margin: 0 3px
+                &.weekday
+                    font-family: 'Gotham XNarrow Book'
+                    +rem('font-size', 16px)
+                    text-transform: uppercase
+                &.weekheat
+                    +rem('font-size', 22px)

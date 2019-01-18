@@ -41,13 +41,44 @@
 			$taxonomy->cap->manage_terms,
 			'edit-tags.php?taxonomy=' . $taxonomy->name
 		);
-	}
+    }
+    
+    function cpt() {
+        register_post_type('tendencias', array(
+            'labels' => array(
+                'name' => _x('Tendências', 'post type general name'),
+                'singular_name' => _x('Tendência', 'post type singular name'),
+                'add_new' => _x('Novo', 'Tendência'),
+                'add_new_item' => __('Novo Tendência'),
+                'edit_item' => __('Editar Tendência'),
+                'new_item' => __('Novo Tendência'),
+                'view_item' => __('Ver Tendência'),
+                'search_items' => __('Buscar Tendências'),
+                'not_found' =>  __('Nada encontrado'),
+                'not_found_in_trash' => __('Nada encontrado'),
+                'parent_item_colon' => ''
+            ),
+            'exclude_from_search' => true, // the important line here!
+            'public' => true,
+            'publicly_queryable' => true,
+            'show_ui' => true,
+            'query_var' => true,
+            'rewrite' => true,
+            'show_in_nav_menus' => true,
+            'capability_type' => 'post',
+            'hierarchical' => false,
+            'menu_position' => -1,
+            'supports' => array('title', 'editor', 'excerpt', 'thumbnail')
+        ));                                     
+    }     
+       
+    cpt();
 
 	if ( ! function_exists( 'the_widgets_init' ) ) {
 		function the_widgets_init() {
 			if ( ! function_exists( 'register_sidebars' ) )
-			return;
-			register_sidebar(
+            return;
+			register_sidebar(              
 				array(
 					'id'            => 'sidebar',
 					'name'          => __( 'Sidebar' ),
@@ -55,7 +86,7 @@
 					'after_widget'  => '</div>',
 					'before_title'  => '<div class="title-header"><h4 class="section-title"><strong>',
 					'after_title'   => '</strong></h4></div>',
-				));
+			));
 		} // End the_widgets_init()
 	}    
 
@@ -203,20 +234,13 @@
                 'type' => 'url',
                 'settings' => 'instagram'
             ));  
-            $wp_customize->add_setting( 'googleplus' );
-            $wp_customize->add_control('googleplus',  array(
-                'label' => 'Google Plus',
+            $wp_customize->add_setting( 'linkedin' );
+            $wp_customize->add_control('linkedin',  array(
+                'label' => 'Linkedin',
                 'section' => 'social_networks',
                 'type' => 'url',
-                'settings' => 'googleplus'
+                'settings' => 'linkedin'
             ));                                     
-            $wp_customize->add_setting( 'maps' );
-            $wp_customize->add_control('maps',  array(
-                'label' => 'Google Maps',
-                'section' => 'general',
-                'type' => 'text',
-                'settings' => 'maps'
-            ));  
     }	
 	
 	add_theme_support( 'post-thumbnails' );
