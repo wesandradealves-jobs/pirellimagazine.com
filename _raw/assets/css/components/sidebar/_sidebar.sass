@@ -14,6 +14,23 @@
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$classicgray, endColorstr=transparentize($classicgray, .7),GradientType=1 )
         .section-title
             background-color: $classicgray
+    [class*="categories"]
+        .fa-angle-down
+            color: $blue
+            cursor: pointer
+            display: block
+            position: absolute
+            right: 0            
+            top: 0
+        > ul 
+            margin-top: 15px
+            > li
+                > ul 
+                    display: none
+                    margin-top: 15px
+                    >li 
+                        &:not(:last-child)
+                            margin-bottom: 15px                
     [class*="categories"],
     [class*="recent"]
         > ul 

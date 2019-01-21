@@ -41,7 +41,19 @@ $(document).ready(function () {
             $('.is-active').removeClass('is-active'),
             $('.toggle').removeClass('toggle');
         }
-    });     
+    });    
+    if($('.widget_categories').length)
+    {
+        $('.widget_categories ul li').each(function() {
+            if($(this).children('ul').length)
+            {
+                $(this).append('<i class="fal fa-angle-down"></i>'),
+                $(this).click(function() {
+                    $(this).toggleClass('toggle').children('ul').toggle();
+                });                 
+            }
+        });  
+    } 
 });
       
       
