@@ -41,7 +41,7 @@ $(document).ready(function () {
             $('.is-active').removeClass('is-active'),
             $('.toggle').removeClass('toggle');
         }
-    });        
+    });     
 });
       
       

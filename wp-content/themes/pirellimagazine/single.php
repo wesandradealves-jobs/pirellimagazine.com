@@ -1,17 +1,28 @@
 <?php get_header(); ?>
-<section class="webdoor" style="background-image: url(assets/imgs/post.jpg)">
+<?php if ( have_posts () ) : while (have_posts()) : the_post(); ?>
+<section class="webdoor" style="background-image: url(<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'full'); ?>)">
   <ul class="breadcrumbs">
-    <li><a href="index.html">Início</a></li>
-    <li><a href="category.html">Lamborghini</a></li>
-    <li>Conheça a tecnologia de ponta do novo SCORPION™ ALL TERRAIN PLUS</li>
+    <li><a href="<?php echo site_url(); ?>">Início</a></li>
+    <?php 
+      if(get_the_category()[0]) : 
+    ?>    
+    <li><a href="<?php echo get_term_link( get_the_category()[0]->slug, 'category' ); ?>"><?php echo get_the_category()[0]->name; ?></a></li>
+    <?php endif; ?>
+    <?php 
+      if(get_the_category()[1]) : 
+    ?>
+    <li><a href="<?php echo get_term_link( get_the_category()[1]->slug, 'category' ); ?>"><?php echo get_the_category()[1]->name; ?></a></li>
+    <?php endif; ?>
+    <li><?php the_title(); ?></li>
   </ul>
-  <a class="category" href="category.html">LAMBORGHINI</a>
+  <a class="category" href="<?php echo get_term_link( get_the_category()[0]->slug, 'category' ); ?>"><?php echo get_the_category()[0]->name; ?></a>
+  <!-- <a class="category" href="category.html">LAMBORGHINI</a> -->
   <h3 class="title">
-      Conheça a tecnologia de ponta
-      do novo SCORPION™ ALL TERRAIN PLUS
+    <?php the_title(); ?>
   </h3>
-  <p class="date">16 de setembro de 2018</p>
-  <ul class="social-networks">
+  <p class="date"><?php the_date(); ?></p>
+  <?php echo do_shortcode("[wp_social_sharing social_options='facebook,twitter' twitter_username='arjun077' facebook_text='' twitter_text='' icon_order='f,t' show_icons='1']"); ?>
+  <!-- <ul class="social-networks">
     <li>
       <a href="" target="_blank">
         <i class="fab fa-facebook-f"></i>
@@ -32,22 +43,21 @@
         <i class="fab fa-linkedin"></i>
       </a>
     </li>                            
-  </ul>          
+  </ul>           -->
 </section>
 <section class="content">
   <div class="container">
     <div class="content-wrapper">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea error quibusdam ab debitis nam autem consectetur, sunt voluptates dolor numquam, minima corrupti in esse deleniti natus sequi asperiores officia inventore? Pariatur quidem magnam, non eius, nam illum laudantium architecto animi voluptatibus perferendis maxime. Omnis error, delectus officiis consectetur eius harum aliquid obcaecati dolor commodi corrupti autem, explicabo veniam accusantium aliquam consequuntur eos illo eveniet blanditiis at. Illo iste alias accusamus eaque veritatis? In quo ab odio magni aliquid molestias alias magnam officiis, quam ad provident temporibus ullam dolores, quos excepturi nihil est natus repellat neque nobis illo voluptate quas? Deserunt!</p>
-      <br/>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse impedit fugit pariatur adipisci, quo placeat, necessitatibus iure nobis modi asperiores, eum laboriosam rerum? Libero, minima!</p>
-      <br/>
-      <p><strong>Confira as funcionalidades do design do novo SCORPION™ ALL TERRAIN PLUS:</strong></p>
-      <br/>
-      <p><img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/media/assets/submodel/8551.jpg" alt=""></p>
+      <?php 
+        the_content();
+      ?>
     </div>
     <?php if(get_sidebar()) : 
             get_sidebar(); 
         endif; ?>
   </div>
 </section>
+</div>
+<?php endwhile;
+endif; ?>
 <?php get_footer(); ?>
