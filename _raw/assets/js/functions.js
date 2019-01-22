@@ -49,7 +49,8 @@ $(document).ready(function () {
             {
                 $(this).append('<i class="fal fa-angle-down"></i>'),
                 $(this).click(function() {
-                    $(this).toggleClass('toggle').children('ul').toggle();
+                    $(this).children('ul').toggle(),
+                    $(this).children('.fa-angle-down').toggleClass('open');
                 });                 
             }
         });  

@@ -1,3 +1,15 @@
+<?php 
+  if(get_bloginfo() == 'ROP' || get_bloginfo() == 'CL')
+  {
+    $current_user = wp_get_current_user();
+    if(!$current_user->ID)
+    {
+      wp_safe_redirect( site_url( '/login' ) );
+      exit();
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html <?php language_attributes(); $lang = explode("lang=",get_language_attributes()); ?>>
   <head>
@@ -93,11 +105,9 @@
                 </li>                                                                             
               </ul>
             </nav>
-            <?php if(get_current_blog_id() != 1) : ?>
             <h2 class="profile-category">
               <span><?php echo bloginfo(); ?></span>
             </h2>
-            <?php endif; ?>
           </div>
         </div>
         <?php if(is_front_page()) : 

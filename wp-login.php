@@ -182,7 +182,13 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 	do_action( 'login_header' );
 	?>
 	<div id="login">
-		<h1><a href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1"><?php echo $login_header_text; ?></a></h1>
+		<h1><a href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1">
+                  <?php if(get_theme_mod('logo')) : ?>
+                      <img src="<?php echo get_theme_mod('logo'); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) )." - ".get_bloginfo('description'); ?>">
+                  <?php else : ?>
+                      <?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
+                  <?php endif; ?>
+	</a></h1>
 	<?php
 
 	unset( $login_header_url, $login_header_title );

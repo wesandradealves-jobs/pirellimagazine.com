@@ -20,8 +20,12 @@
             cursor: pointer
             display: block
             position: absolute
+            transform-origin: center center
+            +transition(500ms)
             right: 0            
             top: 0
+            &.open
+                transform: rotate(180deg)
         > ul 
             margin-top: 15px
             > li

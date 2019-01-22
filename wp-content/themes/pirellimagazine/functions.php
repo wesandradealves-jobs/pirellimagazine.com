@@ -257,4 +257,4 @@
 	add_filter('screen_options_show_screen', '__return_false'); 	
 	add_filter('terms_clauses', 'df_terms_clauses', 10, 3);
 	add_filter('upload_mimes', 'cc_mime_types');
-	add_filter('pre_get_posts', 'query_post_type');
+    add_filter('pre_get_posts', 'query_post_type');
