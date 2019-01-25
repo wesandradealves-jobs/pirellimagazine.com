@@ -18,6 +18,8 @@
                 <p class="excerpt"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_excerpt(); ?></a></p>
             </li>
             <?php endwhile; 
+                else :
+                    ?> <li><p><center>Nenhum post encontrado.</center></p></li> <?php
             endif; ?>                                                     
             </ul>
             <?php 
